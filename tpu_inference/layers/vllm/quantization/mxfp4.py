@@ -176,7 +176,7 @@ class VllmMxfp4MoEMethod(Mxfp4MoEMethod):
                     w2_weight_scale=None,
                     w2_bias=w2_bias,
                 ),
-                jnp.float4_e2m1fn,
+                jnp.float8_e5m2,
                 REQUANTIZED_BLOCK_SIZE,
             )
             return process_moe_weights(
