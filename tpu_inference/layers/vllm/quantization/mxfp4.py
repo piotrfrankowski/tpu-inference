@@ -154,9 +154,9 @@ class VllmMxfp4MoEMethod(Mxfp4MoEMethod):
 
             # Requantize the weights into TPU friendly block size.
             w13_weight, w13_weight_scale = quantize_tensor(
-                jnp.float4_e2m1fn, w13_weight, 2, REQUANTIZED_BLOCK_SIZE, True)
+                jnp.float8_e5m2, w13_weight, 2, REQUANTIZED_BLOCK_SIZE, True)
             w2_weight, w2_weight_scale = quantize_tensor(
-                jnp.float4_e2m1fn, w2_weight, 2, REQUANTIZED_BLOCK_SIZE, True)
+                jnp.float8_e5m2, w2_weight, 2, REQUANTIZED_BLOCK_SIZE, True)
 
             intermediate_size = w2_weight.shape[-1]
             hidden_size = w13_weight.shape[-1]
